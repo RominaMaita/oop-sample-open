@@ -21,10 +21,10 @@ public record Money(BigDecimal amount, Currency currency) {
     }
 
     public Money addMoney(Money other){
-        if(!this.currency.equals(other.currency)){
-            throw new IllegalArgumentException("Cannot add moneys with different currency");
+        if (!this.currency.equals(other.currency)) {
+            throw new IllegalArgumentException("Cannot add money to a different currency");
         }
-        return new Money(amount.add(other.amount), this.currency);
+        return new Money(this.amount.add(other.amount), this.currency);
     }
 
     public Money multiply(int multiplier){
